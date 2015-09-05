@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+	<div class='container'>
+		<% @posts.each do |d| %>
+		<h1><%= d.title %></h1>
+		<p><%= truncate(d.content, :length => 200) %></p>
+		<%= link_to "Read More", post_path(d) %>
+		<% end %>
+		<br>
+		<%= link_to "Create New Post", '/posts/new' %>
+	</div>
+</body>
+</html>

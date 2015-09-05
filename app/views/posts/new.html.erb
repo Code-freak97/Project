@@ -1,0 +1,10 @@
+<html>
+<div class='container'>
+<%= form_for(@post_new) do |d| %>
+<h1><%= d.text_area :title, :placeholder => "Title" %></h1>
+<p><%= d.text_area :content %></p>
+<%= d.submit "Create" %>
+<% end %>
+<br>
+</div>
+</html>
