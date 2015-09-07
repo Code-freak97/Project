@@ -3,16 +3,24 @@
 </head>
 <body>
 	<div class='container'>
-		<% @posts.each do |d| %>
 		<div class="col-md-8">
-		<h1><%= d.title %></h1>
-		<p><%= truncate(d.content, :length => 200) %></p>
-		<%= link_to "Read More", post_path(d), :class => "btn btn-success"  %>
+			<% if session[:user] == '' %>
+				<%= link_to "Register", register_path %>
+			<% else %>
+				<h4><%= "Welcome, " + session[:user] %></h4>
+				<%= link_to "Logout", logout_path %>
+			<% end %>
+			</div>
+			<% @posts.each do |d| %>
+			<div class="col-md-8">
+				<h1><%= d.title %></h1>
+				<p><%= truncate(d.content, :length => 200) %></p>
+				<%= link_to "Read More", post_path(d), :class => "btn btn-success"  %>
 		</div>
 		<% end %>
 		<br>
 		<div class="col-md-8">
-		<%= link_to "Create New Post", '/posts/new'  %>
+			<%= link_to "Create New Post", '/posts/new'  %>
 		</div>
 		<br>
 	</div>
