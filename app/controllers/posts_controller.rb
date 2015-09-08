@@ -4,6 +4,16 @@ class PostsController < ApplicationController
 	end
 	def show
 		@post = Feed.find(params[:id])
+		@comments = @post.comments.all
+		@comment = @post.comments.new
+	end
+	def create_comment
+		@comment = Comment.create(comment_params)
+		if @comment
+			redirect_to post_path
+		else
+			render 'show'
+		end
 	end
 	def new
 		@post_new = Feed.new
@@ -31,5 +41,8 @@ class PostsController < ApplicationController
 	private 
 	def post_params
 		params.require(:feed).permit(:title, :content)
+	end
+	def comment_params
+		params.require(:comment).permit(:name, :comment, :feed_id)
 	end
 end

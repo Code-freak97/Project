@@ -1,8 +1,30 @@
 <html>
 <div class='container'>
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
-<%= link_to "Home", '/' %><br>
-<%= link_to "Edit",  edit_path(@post)%>
+	<div class="col-md-10">
+		<h1><%= @post.title %></h1>
+		<p><%= @post.content %></p>
+		<%= link_to "Home", '/' %><br>
+		<%= link_to "Edit",  edit_path(@post) %>
+		<br>
+	</div>
+	<div class="col-md-8">
+		<h1>Comments</h1>
+		<% @comments.each do |c| %>
+		<div class="panel panel-default">
+		<div class="panel-heading"><h4><%= c.name %></h4></div>
+		<p class="panel-body"><%= c.comment %></p>
+		</div>
+		<% end %>
+	</div>
+	<div class="col-md-8">
+		<h1>Your Thoughts?</h1>
+		<%= form_for(@comment) do |d| %>
+		<h1><%= d.text_field :name, :placeholder => "Name", :class => 'form-control' %></h1>
+		<p><%= d.text_area :comment, :class => 'form-control', :placeholder => 'Comment' %></p>
+		<%= d.hidden_field :feed_id, :value => @post.id %>
+		<%= d.submit "Comment", :class => 'btn btn-danger' %>
+		<% end %>
+		<br>
+	</div>
 </div>
 </html>

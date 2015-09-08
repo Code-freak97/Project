@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20031231184732) do
+ActiveRecord::Schema.define(version: 20150908082141) do
+
+  create_table "comments", force: true do |t|
+    t.string   "comment"
+    t.string   "name"
+    t.integer  "feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feeds", force: true do |t|
     t.string   "title"
