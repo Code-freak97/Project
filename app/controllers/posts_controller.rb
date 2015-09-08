@@ -16,6 +16,18 @@ class PostsController < ApplicationController
 			render 'new'
 		end
 	end
+	def edit
+		@post = Feed.find(params[:id])
+	end
+	def update
+		@post = Feed.find(params[:id])
+		@post_update = @post.update_attributes(post_params)
+		if @post_update
+			redirect_to '/'
+		else
+			render 'edit'
+		end
+	end
 	private 
 	def post_params
 		params.require(:feed).permit(:title, :content)

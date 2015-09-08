@@ -1,6 +1,6 @@
 <html>
 <div class='container'>
-<%= form_for(@post_new) do |d| %>
+<%= form_for(@post) do |d| %>
 <h1><%= d.text_field :title, :placeholder => "Title", :class => 'form-control' %></h1>
 <p><%= d.text_area :content, :class => 'form-control', :placeholder => 'Content' %></p>
 <%= d.submit "Create", :class => 'btn btn-primary' %>

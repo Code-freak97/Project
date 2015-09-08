@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/show/:id' => 'posts#show', as: :post
   get '/new' => 'posts#new'
   post '/posts' => 'post#create', as: :feeds
+  get '/edit/:id' => 'posts#edit', as: :edit
+  patch '/update/:id' => 'posts#update', as: :feed
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -2,5 +2,7 @@
 <div class='container'>
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
+<%= link_to "Home", '/' %><br>
+<%= link_to "Edit",  edit_path(@post)%>
 </div>
 </html>
