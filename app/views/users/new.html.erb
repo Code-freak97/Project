@@ -4,8 +4,8 @@
 <h1>Register: </h1>
 <%= form_for(@user) do |d| %>
 	<h1><%= d.text_field :name, :placeholder => "Name", :class => 'form-control' %></h1>
-	<p><%= d.text_area :email, :class => 'form-control email', :placeholder => 'Email' %></p>
-	<p><%= d.password_field :password_digest, :class => 'form-control email', :placeholder => 'Password' %></p>
+	<p><%= d.text_field :email, :class => 'form-control', :placeholder => 'Email' %></p>
+	<p><%= d.password_field :password, :class => 'form-control email', :placeholder => 'Password' %></p>
 	<%= d.submit "Create", :class => 'btn btn-primary' %>
 	<% end %>
 </div>

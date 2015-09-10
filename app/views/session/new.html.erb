@@ -1,0 +1,13 @@
+<html>
+<div class='container'>
+<div class="col-md-8">
+<h1>Login: </h1>
+<%= form_for(:session, url: login_path) do |d| %>
+	<h1><%= d.text_field :name, :placeholder => "Username", :class => 'form-control' %></h1>
+	<p><%= d.password_field :password, :class => 'form-control', :placeholder => 'Password' %></p>
+	<%= d.submit "Login", :class => 'btn btn-primary' %>
+	<% end %>
+</div>
+<br>
+</div>
+</html>

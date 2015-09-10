@@ -4,10 +4,11 @@
 <body>
 	<div class='container'>
 		<div class="col-md-8">
-			<% if session[:user] == '' %>
+			<% if session[:user_id] == nil %>
 				<%= link_to "Register", register_path %>
+				<%= link_to "Login", new_login_path %>
 			<% else %>
-				<h4><%= "Welcome, " + session[:user] %></h4>
+				<h4><%= "Welcome, " + User.find_by_id(session[:user_id]).name	 %></h4>
 				<%= link_to "Logout", logout_path %>
 			<% end %>
 			</div>
